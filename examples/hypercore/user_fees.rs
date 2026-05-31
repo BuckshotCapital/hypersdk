@@ -27,14 +27,10 @@ async fn main() -> anyhow::Result<()> {
 
     println!("User: {:?}", args.user);
     println!("Daily volume: {}", fees.daily_user_vlm);
-    println!("Perp maker rate: {}", fees.user_add_rate);
-    println!("Perp taker rate: {}", fees.user_cross_rate);
-    if let Some(rate) = fees.user_spot_add_rate {
-        println!("Spot maker rate: {}", rate);
-    }
-    if let Some(rate) = fees.user_spot_cross_rate {
-        println!("Spot taker rate: {}", rate);
-    }
+    println!("Perp maker rate: {}", fees.maker_rate);
+    println!("Perp taker rate: {}", fees.taker_rate);
+    println!("Spot maker rate: {}", fees.spot_maker_rate);
+    println!("Spot taker rate: {}", fees.spot_taker_rate);
     println!("Referral discount: {}", fees.active_referral_discount);
 
     Ok(())

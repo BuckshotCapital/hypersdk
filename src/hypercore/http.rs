@@ -649,8 +649,8 @@ impl Client {
     /// let fees = client.user_fees(user).await?;
     ///
     /// println!("maker={} taker={} referral_discount={}",
-    ///     fees.user_add_rate,
-    ///     fees.user_cross_rate,
+    ///     fees.maker_rate,
+    ///     fees.taker_rate,
     ///     fees.active_referral_discount
     /// );
     /// # Ok(())

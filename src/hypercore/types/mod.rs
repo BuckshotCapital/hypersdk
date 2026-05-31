@@ -3007,16 +3007,18 @@ pub struct UserFees {
     pub daily_user_vlm: serde_json::Value,
     /// Fee schedule details.
     pub fee_schedule: serde_json::Value,
-    /// Effective perp maker fee rate (`userAddRate`).
-    pub user_add_rate: Decimal,
-    /// Effective perp taker fee rate (`userCrossRate`).
-    pub user_cross_rate: Decimal,
+    /// Effective perpetual maker fee rate.
+    #[serde(rename = "userAddRate")]
+    pub maker_rate: Decimal,
+    /// Effective perpetual taker fee rate.
+    #[serde(rename = "userCrossRate")]
+    pub taker_rate: Decimal,
     /// Effective spot maker fee rate.
-    #[serde(default)]
-    pub user_spot_add_rate: Option<Decimal>,
+    #[serde(rename = "userSpotAddRate")]
+    pub spot_maker_rate: Decimal,
     /// Effective spot taker fee rate.
-    #[serde(default)]
-    pub user_spot_cross_rate: Option<Decimal>,
+    #[serde(rename = "userSpotCrossRate")]
+    pub spot_taker_rate: Decimal,
     /// Active referral discount applied to the user.
     pub active_referral_discount: Decimal,
     /// Whether the user is in a fee trial period.
